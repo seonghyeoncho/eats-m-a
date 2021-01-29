@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Menu, Radio } from 'antd';
 import queryString from 'query-string';
 import { dbService } from '../firebase';
-import '../scss/App.scss';
+import './HomePage.scss';
 import NewOrderList from '../component/NewOrderList';
 import CompleteOrderList from '../component/CompleteOrderList';
 import { Table } from '../types';
@@ -102,7 +102,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className="HomePage">
       <div className="header">
         <h1>{query.store}</h1>
         <h1>{date.toLocaleString('kr')}</h1>

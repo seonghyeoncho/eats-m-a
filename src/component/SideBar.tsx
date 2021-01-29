@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './SideBar.scss';
+import { firebaseInstance } from '../firebase';
+import { useDispatch } from 'react-redux';
+import * as AppState from '../redux/AppState/AppStateTypes';
 
 interface props {
   store: any;
@@ -10,6 +13,7 @@ interface props {
 
 const SideBar: React.FC<props> = (props) => {
   const [selected, setSelected] = useState(0);
+  const dispatch = useDispatch();
 
   const handleOnClickNewMenu = () => {
     setSelected(0);
@@ -19,6 +23,20 @@ const SideBar: React.FC<props> = (props) => {
   const handleOnClickCompleted = () => {
     setSelected(1);
     props.onClickCompleted();
+  };
+
+  const handleOnClickLogout = () => {
+    firebaseInstance
+      .auth()
+      .signOut()
+      .then(() => {
+        dispatch({
+          type: AppState.ActionTypes.LOGOUT,
+        });
+      })
+      .catch((error) => {
+        alert(error);
+      });
   };
 
   return (
@@ -38,6 +56,9 @@ const SideBar: React.FC<props> = (props) => {
       <Link className="menuBtn" to={`/setting/?store=${props.store}`}>
         메뉴관리
       </Link>
+      <div className="logout-btn" onClick={handleOnClickLogout}>
+        로그아웃
+      </div>
     </div>
   );
 };

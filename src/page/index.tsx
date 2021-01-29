@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import App from './App';
-import Auth from './LoginPage';
+import App from './HomePage';
+import LoginPage from './LoginPage';
 import Settings from '../component/Settings';
+import { useSelector } from 'react-redux';
+import useAuthStateObserver from '../firebase/useAuthStateObserver';
 
 const RootRouter = () => {
-  const [logined, setLogined] = useState<boolean>(false);
+  useAuthStateObserver();
+  const loggedin = useSelector((state: any) => state.AppState.user !== null);
 
   return (
     <Router>
-      {logined ? (
+      {loggedin ? (
         <>
           <Route exact path="/" component={() => <App />} />
           <Route exact path="/setting" component={() => <Settings />} />
@@ -18,9 +21,7 @@ const RootRouter = () => {
         <Route
           exact
           path="/"
-          component={(props: any) => (
-            <Auth setLogined={setLogined} history={props.history} />
-          )}
+          component={(props: any) => <LoginPage history={props.history} />}
         />
       )}
     </Router>
