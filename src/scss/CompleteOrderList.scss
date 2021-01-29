@@ -1,0 +1,16 @@
+.row{
+  display:flex;
+  overflow-x:auto;
+}
+
+.row::-webkit-scrollbar{
+  width:0;
+}
+
+.orderCard{
+  border:0.8mm solid black;
+}
+
+.orderMeta{
+  margin:0;
+}

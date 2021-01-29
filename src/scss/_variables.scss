@@ -1,0 +1,33 @@
+// Breakpoints
+
+$breakpoint-mobile: 335px;
+$breakpoint-tablet: 758px;
+$breakpoint-desktop: 1024px;
+$height: 568px;
+
+$store-bold-font-size:($breakpoint-mobile/15);
+$table-bold-font-size:($breakpoint-mobile/25);
+
+
+
+
+$base-color: #ff1b6d;
+
+
+@font-face{
+    font-family: 'NotoSansCJkkr-Bold';
+    src:url('./fonts/NotoSansCJKkr-Bold.otf') format('truetype');
+}
+@font-face{
+    font-family: 'NotoSansCJkkr-Regular';
+    src:url('./fonts/NotoSansCJKkr-Regular.otf') format('truetype');
+}
+@font-face{
+    font-family: 'NotoSansCJkkr-Light';
+    src:url('./fonts/NotoSansCJKkr-Light.otf') format('truetype');
+}
+@font-face{
+    font-family: 'NotoSansCJkkr-Medium';
+    src:url('./fonts/NotoSansCJKkr-Medium.otf') format('truetype');
+}
+

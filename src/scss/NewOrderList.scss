@@ -1,0 +1,75 @@
+.row{
+  display:flex;
+  overflow-x:auto;
+}
+
+.row::-webkit-scrollbar{
+  width:0;
+}
+
+.orderCard{
+  height: 70vh;
+  margin: 3vh;
+  border-radius: 2vh;
+  border-color: #ff1b6d;
+}
+.orderCancelButton{
+  position: absolute;
+  border-bottom-left-radius: 1rem;
+  bottom:0;
+  left:0;
+  width:50%;
+  height: 6vh;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+.orderFinishedButton{
+  position: absolute;
+  border-bottom-right-radius: 1rem;
+  background-color: #ff1b6d;
+  bottom:0;
+  right:0;
+  width:50%;
+  height: 6vh;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+.orderMeta{
+  height: 50vh;
+  border:none;
+}
+
+.totalPriceDiv{
+  margin:0;
+  width:90%;
+  position:absolute;
+  bottom: 6vh;
+}
+.coloredHr{
+  border-color:#ff1b6d;
+}
+
+.orderMoreDetailButton{
+  position: absolute;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  background-color: #ff1b6d;
+  bottom:0;
+  right:0;
+  width:100%;
+  height: 6vh;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+.menuPopover{
+  left:30vh;
+  width:80vh;
+  height: 80vh;
+
+}
+.cardTitle{
+  text-align: center;
+}

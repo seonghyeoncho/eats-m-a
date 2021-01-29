@@ -1,0 +1,33 @@
+.orderDiv{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menuText{
+  max-width: 50%;
+}
+
+.countText{
+  max-width: 50%;
+}
+
+.orderInfo{
+  width: 100%;
+  font-size: 1rem;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.totalInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.orderDetail{
+  display: flex;
+  flex-direction: row;
+
+}

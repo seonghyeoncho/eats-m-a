@@ -1,0 +1,232 @@
+@import './_variables.scss';
+
+button:focus {
+    outline: none;
+}
+.setting-con{
+    display: flex;
+    .setting-box{
+        z-index: 2;
+        height: 27px;
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        top:0px;
+        background-color: black;
+        color: white;
+        padding-left: 30px;
+        padding-top: 4px;
+        
+    }
+    .setting-nav-con{
+        z-index: 1;
+        position: fixed;
+        background-color: black;
+        color: white;
+        width: 256px;
+        height: 100%;
+        padding-top:27px;
+        
+        display: flex;
+        flex-direction: column;
+        font-size: 15px;
+        font-family: NotoSansCJKkr-Regular;
+        .back-bt{
+            padding-top: 20px;
+
+            padding-left: 30px;
+            height: 57px;
+        }
+        
+        .setting-nav-menu{
+            border: 0px;
+            margin: 9px 0px;
+            background-color: black;
+            padding-left: 30px;
+        }
+        .setting-nav-store{
+            border: 0px;
+            margin: 9px 0px;
+            background-color: black;
+            padding-left: 30px;
+        }
+        .setting-nav-info{
+            border: 0px;
+            margin: 9px 0px;
+            background-color: black;
+            padding-left: 30px;
+        }
+
+        .setting-nav-menu-a{
+            border: 0px;
+            padding: 9px 0px;
+            background-color: #ff1b6d;
+            padding-left: 30px;
+        }
+        .setting-nav-store-a{
+            border: 0px;
+            padding: 9px 0px;
+            background-color: #ff1b6d;
+            padding-left: 30px;
+        }
+        .setting-nav-info-a{
+            border: 0px;
+            padding: 9px 0px;
+            background-color: #ff1b6d;
+            padding-left: 30px;
+        }
+        
+
+    }
+    .setting-content-con{
+        margin-left: 256px;
+        margin-top: 126px;
+        .menusetting-con{
+            .menusetting-nav-con{
+                background-color: white;
+                z-index: 3;
+                
+                .background-box-menusetting{
+                    background-color: #333333;
+                    position: fixed;
+                    right: 0px;
+                    height: 57px;
+                    width: 100%;
+                    left: 256px;
+                    top: 27px;
+                    z-index: 1;
+                }
+               
+                display: flex;
+                position: fixed;
+                top:27px;
+                font-size: 15px;
+                font-family: NotoSansCJKkr-Bold;
+                button{
+                    border: 0px;
+                }
+
+                
+                .menusetting-nav-main{
+
+                    height: 57px;
+                    color: #dedede;
+                    background-color: #525252;
+
+                    padding: 0px 20px;
+                    z-index: 2;
+
+                }
+                .menusetting-nav-set{
+                    padding: 0px 20px;
+                    color: #dedede;
+                    background-color: #525252;
+                    z-index: 2;
+
+                }
+                .menusetting-nav-side{
+                    padding: 0px 20px;
+                    color: #dedede;
+                    background-color: #525252;
+                    z-index: 2;
+
+                }
+
+                .menusetting-nav-main-a{
+
+                    height: 57px;
+                    color: #ff1b6d;
+                    background-color: white;
+
+                    padding: 0px 20px;
+                    z-index: 2;
+
+                }
+                .menusetting-nav-set-a{
+                    padding: 0px 20px;
+                    color: #ff1b6d;
+                    background-color: white;
+
+                    z-index: 2;
+
+                }
+                .menusetting-nav-side-a{
+                    padding: 0px 20px;
+                    color: #ff1b6d;
+                    background-color: white;
+
+                    z-index: 2;
+
+                }
+
+
+                
+            }
+
+            .menusetting-title-con{
+                position: fixed;
+                top: 84px;
+                display: flex;
+                padding-left: 20px;
+                font-size: 15px;
+                padding-bottom: 16px;
+                font-family: NotoSansCJKkr-bold;
+                padding-top: 20px;
+                padding-right: 34px;
+                background-color: white;
+
+                .menusetting-title-state{
+                    margin-right: 92px;
+                }
+                .menusetting-title-menu{
+                    margin-right: 413px;
+                }
+                .menusetting-title-price{}
+            }
+
+            .mainmenu-con{
+                margin-top: 20px;
+                .mainmenu-item-con{
+                    margin-left: 20px;
+                    display: flex;
+                    .mainmenu-item-state-bt{
+                        button{
+                            width: 100px;
+                            height: 32px;
+                            margin-bottom: 32px;
+                            margin-right: 20px;
+                            border: 0px;
+                        }
+                        
+
+                    }
+                    .mainmenu-item-info-con{
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        width: 516px;
+                        .mainmenu-item-menu{
+                            font-size: 13px;
+                            font-family: NotoSansCJKkr-bold;
+    
+                        }
+                        .mainmenu-item-price{
+    
+                        }
+                    }
+                    
+                    .mainmenu-item-cancle-bt{
+
+                    }
+
+                }
+
+            }
+            .menusetting-content-con{
+                margin-left: 20px;
+            }
+
+        }
+
+    }
+}
