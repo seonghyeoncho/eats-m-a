@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import firebase from 'firebase';
+import { useDispatch } from 'react-redux';
+import { AuthAction } from '../redux/actions';
 import './LoginPage.scss';
 
 interface Props {
@@ -9,22 +10,11 @@ interface Props {
 const Auth = ({ history }: Props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
-  const toggleState = () => {
-    // alert(password);
-    // const store = '멘동';
-
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        history.push(`/?store=${'멘동'}`);
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        alert(errorMessage);
-      });
+  const handleOnClickLogin = () => {
+    console.log('[LoginPage] dispatching login');
+    dispatch(AuthAction.initiateLogin(email, password));
   };
 
   return (
@@ -33,7 +23,7 @@ const Auth = ({ history }: Props) => {
         <p className="title">LOGIN</p>
         <input onChange={(e) => setEmail(e.target.value)} />
         <input type="password" onChange={(e) => setPassword(e.target.value)} />
-        <button onClick={toggleState}>로그인</button>
+        <button onClick={handleOnClickLogin}>로그인</button>
       </div>
     </div>
   );

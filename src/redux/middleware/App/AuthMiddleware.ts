@@ -1,0 +1,28 @@
+import Action from '../../Types';
+import { AuthAction } from '../../actions';
+import { firebaseInstance } from '../../../firebase';
+
+export const AuthMiddleware = ({ dispatch }: any) => (next: any) => (
+  action: Action
+) => {
+  next(action);
+
+  if (AuthAction.Types.INIT_LOGIN === action.type) {
+    console.log('[AuthMW] dispatching authwithfirebaseemail');
+    const { email, password } = action.payload;
+    dispatch(AuthAction.authenticateWithFirebaseEmail(email, password));
+  }
+
+  if (AuthAction.Types.AUTH_FIREBASE_EMAIL === action.type) {
+    const { email, password } = action.payload;
+    firebaseInstance
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
+};

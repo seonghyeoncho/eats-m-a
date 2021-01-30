@@ -86,8 +86,8 @@ const App = () => {
     };
   }, [radio]);
 
-  console.log(newOrderList);
-  console.log(comOrderList);
+  // console.log(newOrderList);
+  // console.log(comOrderList);
 
   const listState = () => {
     if (state === 0)
@@ -121,7 +121,7 @@ const App = () => {
         />
 
         <div className="plane">
-          <div className="infoBar">
+          {/* <div className="infoBar">
             <div className="radioDiv">
               <Radio.Group onChange={onChangeRadio} value={radio}>
                 <Radio value={0}>최신 주문순</Radio>
@@ -154,7 +154,7 @@ const App = () => {
               }}
             />
           </div>
-          <hr />
+          <hr /> */}
         </div>
       </div>
     </div>

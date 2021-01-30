@@ -1,25 +1,24 @@
 import { useEffect } from 'react';
-import firebase from 'firebase';
 import { useDispatch } from 'react-redux';
-import * as AppState from '../redux/AppState/AppStateTypes';
+import { AuthAction } from '../redux/actions';
+import firebase from 'firebase';
 
 function useAuthStateObserver() {
   const dispatch = useDispatch();
+  console.log('[firebase] initiating useAuthStateObserver');
+
   useEffect(() => {
     let unregisterAuthObserver: any;
     unregisterAuthObserver = firebase.auth().onAuthStateChanged((user) => {
-      //set state
+      console.log('[useAuthStateObserver] login state changed');
+      console.log(user);
       if (!!user) {
-        dispatch({
-          type: AppState.ActionTypes.LOGIN,
-          payload: {
-            user: user,
-          },
-        });
+        console.log('login detected');
+        console.log(AuthAction.loginSuccess());
+        dispatch(AuthAction.loginSuccess());
       } else {
-        dispatch({
-          type: AppState.ActionTypes.LOGOUT,
-        });
+        console.log('logout detected');
+        dispatch(AuthAction.logoutSuccess());
       }
     });
 

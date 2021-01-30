@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Order = ({ orders }: Props) => {
-  console.log(orders);
+  // console.log(orders);
 
   return (
     <div>

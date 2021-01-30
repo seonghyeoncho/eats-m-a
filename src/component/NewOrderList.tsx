@@ -28,7 +28,7 @@ const NewOrderList = ({ table, toggleCheck, indexNumber }: Props) => {
     }
   }
 
-  console.log(tables);
+  // console.log(tables);
 
   return (
     <div className="row">
