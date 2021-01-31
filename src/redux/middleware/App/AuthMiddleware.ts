@@ -1,5 +1,5 @@
 import { Action } from '../../Types';
-import { AuthAction } from '../../actions';
+import { AuthAction, StoreAction, UIAction } from '../../actions';
 import { firebaseInstance } from '../../../firebase';
 
 export const AuthMiddleware = ({ dispatch }: any) => (next: any) => (
@@ -24,5 +24,10 @@ export const AuthMiddleware = ({ dispatch }: any) => (next: any) => (
       .catch((error) => {
         console.log(error.message);
       });
+  }
+
+  if (AuthAction.Types.LOGIN_SUCCESS === action.type) {
+    dispatch(UIAction.setGlobalLoading(false));
+    dispatch(StoreAction.loadStoreFirebase());
   }
 };

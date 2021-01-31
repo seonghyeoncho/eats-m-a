@@ -12,7 +12,7 @@ const initialState: Auth = {
 };
 
 const AuthReducer = (state = initialState, action: Action) => {
-  console.log('[AuthReducer] invoked with type: ' + action.type);
+  // console.log('[AuthReducer] invoked with type: ' + action.type);
   switch (action.type) {
     case AuthAction.Types.LOGIN_SUCCESS:
       console.log('loggedin true');

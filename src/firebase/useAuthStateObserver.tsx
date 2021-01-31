@@ -16,7 +16,6 @@ function useAuthStateObserver() {
         // console.log(user.uid);
         dispatch(AuthAction.setUid(user.uid));
         dispatch(AuthAction.loginSuccess());
-        dispatch(UIAction.setGlobalLoading(false));
       } else {
         dispatch(AuthAction.logoutSuccess());
       }

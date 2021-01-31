@@ -6,23 +6,21 @@ export interface store {
   };
 
   menu: {
-    단품: [
+    categories: [
       {
         name: string;
-        price: number;
-        optionGroup: [1, 2];
+        description: string;
       }
     ];
-    세트메뉴: [
+    optionGroups: [];
+    item: [
       {
         name: string;
-        price: number;
-        optionGroup: [1, 2];
+        price: string;
+        description: string;
+        categories: [];
+        optionGroups: [];
       }
     ];
   };
-
-  optionGroups: [];
-
-  orders: [];
 }

@@ -59,7 +59,7 @@ const DashboardSideBar: React.FC<props> = (props) => {
       <Link className="menuBtn" to={`/setting/?store=${props.store}`}>
         메뉴관리
       </Link>
-      <Link className="menuBtn" to={`/preference`}>
+      <Link className="menuBtn" to={`/preference/store`}>
         설정
       </Link>
       <div className="logout-btn" onClick={handleOnClickLogout}>

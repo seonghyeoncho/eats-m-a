@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { PreferenceSideBar } from '../../component';
 import './index.scss';
-import PreferenceMenuPage from './PreferenceMenuPage';
+import PreferenceMenuPage from './Menu/PreferenceMenuPage';
 import PreferenceStorePage from './PreferenceStorePage';
 
 interface props {}

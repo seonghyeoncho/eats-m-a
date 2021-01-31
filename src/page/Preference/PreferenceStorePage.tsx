@@ -10,7 +10,7 @@ const PreferenceStorePage: React.FC<props> = (props) => {
   const storeInfo = useSelector((state: RootState) => state.Store.information);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(StoreAction.loadStoreInfoFirebase());
+    dispatch(StoreAction.loadStoreFirebase());
   }, []);
 
   return (
