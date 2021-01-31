@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './SideBar.scss';
+import './DashboardSideBar.scss';
 import { firebaseInstance } from '../firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { AuthAction } from '../redux/actions';
@@ -11,7 +11,7 @@ interface props {
   onClickCompleted: any;
 }
 
-const SideBar: React.FC<props> = (props) => {
+const DashboardSideBar: React.FC<props> = (props) => {
   const [selected, setSelected] = useState(0);
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
@@ -59,6 +59,9 @@ const SideBar: React.FC<props> = (props) => {
       <Link className="menuBtn" to={`/setting/?store=${props.store}`}>
         메뉴관리
       </Link>
+      <Link className="menuBtn" to={`/preference`}>
+        설정
+      </Link>
       <div className="logout-btn" onClick={handleOnClickLogout}>
         로그아웃
       </div>
@@ -67,4 +70,4 @@ const SideBar: React.FC<props> = (props) => {
   );
 };
 
-export default SideBar;
+export default DashboardSideBar;

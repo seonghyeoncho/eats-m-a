@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { AuthAction } from '../redux/actions';
+import { AuthAction } from '../../redux/actions';
 import './LoginPage.scss';
 
 interface Props {
@@ -13,7 +13,7 @@ const Auth = ({ history }: Props) => {
   const dispatch = useDispatch();
 
   const handleOnClickLogin = () => {
-    console.log('[LoginPage] dispatching login');
+    // console.log('[LoginPage] dispatching login');
     dispatch(AuthAction.initiateLogin(email, password));
   };
 

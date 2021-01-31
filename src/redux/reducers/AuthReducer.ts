@@ -1,15 +1,17 @@
-import * as AuthAction from '../actions/AuthAction';
-import Action from '../Types';
+import { AuthAction } from '../actions';
+import { Action } from '../Types';
 
 export interface Auth {
   loggedin: false;
+  uid: string;
 }
 
 const initialState: Auth = {
   loggedin: false,
+  uid: '',
 };
 
-const AuthReducer = (state = initialState, action: any) => {
+const AuthReducer = (state = initialState, action: Action) => {
   console.log('[AuthReducer] invoked with type: ' + action.type);
   switch (action.type) {
     case AuthAction.Types.LOGIN_SUCCESS:
@@ -24,6 +26,12 @@ const AuthReducer = (state = initialState, action: any) => {
         ...state,
         loggedin: false,
       };
+    case AuthAction.Types.SET_UID:
+      return {
+        ...state,
+        uid: action.payload.uid,
+      };
+
     default:
       return state;
   }

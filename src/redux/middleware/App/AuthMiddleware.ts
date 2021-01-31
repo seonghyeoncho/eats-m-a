@@ -1,4 +1,4 @@
-import Action from '../../Types';
+import { Action } from '../../Types';
 import { AuthAction } from '../../actions';
 import { firebaseInstance } from '../../../firebase';
 

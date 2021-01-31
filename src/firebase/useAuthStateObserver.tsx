@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { AuthAction } from '../redux/actions';
+import { AuthAction, UIAction } from '../redux/actions';
 import firebase from 'firebase';
 
 function useAuthStateObserver() {
@@ -13,11 +13,11 @@ function useAuthStateObserver() {
       console.log('[useAuthStateObserver] login state changed');
       console.log(user);
       if (!!user) {
-        console.log('login detected');
-        console.log(AuthAction.loginSuccess());
+        // console.log(user.uid);
+        dispatch(AuthAction.setUid(user.uid));
         dispatch(AuthAction.loginSuccess());
+        dispatch(UIAction.setGlobalLoading(false));
       } else {
-        console.log('logout detected');
         dispatch(AuthAction.logoutSuccess());
       }
     });

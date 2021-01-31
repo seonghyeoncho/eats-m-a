@@ -1,3 +1,6 @@
-import SideBar from './SideBar';
+import Header from './Header';
+import DashboardSideBar from './DashboardSideBar';
+import PreferenceSideBar from './PreferenceSideBar';
+import * as Loading from './Loading';
 
-export { SideBar };
+export { DashboardSideBar, Header, PreferenceSideBar, Loading };

@@ -1,33 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { Menu, Radio } from 'antd';
 import queryString from 'query-string';
-import { dbService } from '../firebase';
-import './HomePage.scss';
-import NewOrderList from '../component/NewOrderList';
-import CompleteOrderList from '../component/CompleteOrderList';
-import { Table } from '../types';
+import { dbService } from '../../firebase';
+import './index.scss';
+import NewOrderList from '../../component/NewOrderList';
+import CompleteOrderList from '../../component/CompleteOrderList';
+import { Table } from '../../types';
 import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons';
 
-import { SideBar } from '../component';
+import { DashboardSideBar } from '../../component';
+import NewOrder from './NewOrderPage';
+import TableViewPage from './TableViewPage';
 
-const App = () => {
+const DashbaordRouter = () => {
   const query = queryString.parse(window.location.search);
 
   const [newOrderList, setNewOrderList] = useState<any>([]);
   const [comOrderList, setComOrderList] = useState<any>([]);
   const [state, setState] = useState<number>(0);
   const [radio, setRadio] = useState<any>(0);
-  const [date, setDate] = useState<any>(new Date());
   const [page, setPage] = useState<number>(1);
 
   const onChangeRadio = (e: any) => {
     setRadio(e.target.value);
   };
-
-  function tick() {
-    let now = new Date();
-    setDate(now);
-  }
 
   const toggleCheck = (t: string) => {
     newOrderList.map((doc: Table) => {
@@ -79,11 +75,7 @@ const App = () => {
     } else {
       getOrders('orderAt_R');
     }
-
-    let timerID = setInterval(() => tick(), 1000);
-    return function cleanUp() {
-      clearInterval(timerID);
-    };
+    return function cleanUp() {};
   }, [radio]);
 
   // console.log(newOrderList);
@@ -103,13 +95,8 @@ const App = () => {
 
   return (
     <div className="HomePage">
-      <div className="header">
-        <h1>{query.store}</h1>
-        <h1>{date.toLocaleString('kr')}</h1>
-      </div>
-
       <div className="main">
-        <SideBar
+        <DashboardSideBar
           store={query.store}
           onClickNewMenu={() => {
             setState(0);
@@ -121,7 +108,9 @@ const App = () => {
         />
 
         <div className="plane">
-          {/* <div className="infoBar">
+          {state === 0 ? <NewOrder /> : <TableViewPage />}
+        </div>
+        {/* <div className="infoBar">
             <div className="radioDiv">
               <Radio.Group onChange={onChangeRadio} value={radio}>
                 <Radio value={0}>최신 주문순</Radio>
@@ -155,10 +144,9 @@ const App = () => {
             />
           </div>
           <hr /> */}
-        </div>
       </div>
     </div>
   );
 };
 
-export default App;
+export default DashbaordRouter;

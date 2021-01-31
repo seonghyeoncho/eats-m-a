@@ -1,0 +1,19 @@
+.Header {
+  background-color: black;
+  width: 100vw;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  padding: 0px 50px;
+
+  h1 {
+    color: #fff;
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 300;
+  }
+}
