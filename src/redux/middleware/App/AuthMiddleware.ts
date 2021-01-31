@@ -30,4 +30,8 @@ export const AuthMiddleware = ({ dispatch }: any) => (next: any) => (
     dispatch(UIAction.setGlobalLoading(false));
     dispatch(StoreAction.loadStoreFirebase());
   }
+
+  if (AuthAction.Types.LOGOUT_SUCCESS === action.type) {
+    dispatch(UIAction.setGlobalLoading(false));
+  }
 };
