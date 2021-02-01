@@ -17,6 +17,34 @@ export const StoreMiddleware = ({ dispatch, getState }: param) => (
   if (StoreAction.Types.FETCH_STORE_INFO === action.type) {
   }
 
+  if (StoreAction.Types.ADD_MENU_FIREBASE === action.type) {
+    dbService
+      .collection('stores')
+      .where('ownerId', '==', getState().Auth.uid)
+      .get()
+      .then((querySnapshot) =>
+        querySnapshot.forEach((store) => {
+          console.log('[StoreMiddleware] found a store');
+          store.ref
+            .update({
+              'menu.items': firebase.firestore.FieldValue.arrayUnion({
+                name: action.payload.name,
+                description: action.payload.description,
+                price: action.payload.price,
+                categories: [...action.payload.categories],
+              }),
+            })
+            .then(() => {
+              dispatch(StoreAction.loadStoreFirebase());
+            })
+            .catch((e) => {
+              console.log(e.message);
+            });
+        })
+      )
+      .catch((e) => console.log(e.message));
+  }
+
   if (StoreAction.Types.LOAD_STORE_FIREBASE === action.type) {
     dbService
       .collection('stores')

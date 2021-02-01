@@ -6,7 +6,25 @@ export enum Types {
   FETCH_STORE_INFO = '[Store] fetch store info',
   LOAD_STORE_FIREBASE = '[Store] load store info from firebase',
   ADD_CATEGORY_FIREBASE = '[Store] add category firebase',
+  ADD_MENU_FIREBASE = '[Store] add menu firebase',
 }
+
+export const addMenuFirebase: ActionCreator = (
+  name,
+  price,
+  description,
+  categories
+) => {
+  return {
+    type: Types.ADD_MENU_FIREBASE,
+    payload: {
+      name: name,
+      price: price,
+      description: description,
+      categories: categories,
+    },
+  };
+};
 
 export const addCategoryFireBase: ActionCreator = (
   name: string,
