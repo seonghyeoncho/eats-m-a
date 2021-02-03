@@ -61,4 +61,30 @@ export const StoreMiddleware = ({ dispatch, getState }: param) => (
       )
       .catch((e) => console.log(e.message));
   }
+    if (StoreAction.Types.SET_STORE_FIREBASE === action.type) {
+        console.log('[StoreMiddleware] middle ware set store firebase');
+        dbService
+            .collection('stores')
+            .where('ownerId', '==', getState().Auth.uid)
+            .get()
+            .then((querySnapshot) =>
+                querySnapshot.forEach((stores) => {
+                    console.log('[StoreMiddleware] found a store');
+                    stores.ref
+                        .update({
+                            'information':[
+                                ...action.payload
+                            ]
+                        })
+                        .then(() => {
+                            console.log('ASDFIJASDLFSA');
+                            dispatch(StoreAction.loadStoreFirebase());
+                        })
+                        .catch((e) => {
+                            console.log(e.message);
+                        });
+                })
+            )
+            .catch((e) => console.log(e.message));
+    }
 };

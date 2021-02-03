@@ -61,6 +61,15 @@ const StoreReducer = (state = initialState, action: Action) => {
           phone: action.payload.phone,
         },
       };
+    case StoreAction.Types.SET_STORE_FIREBASE:
+      return {
+        ...state,
+        information: {
+          name: action.payload.name,
+          address: action.payload.address,
+          phone: action.payload.phone,
+        },
+      };
 
     case StoreAction.Types.SET_STORE_MENU:
       return {
