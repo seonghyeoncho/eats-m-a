@@ -11,7 +11,6 @@ interface Option {
   price: number;
 }
 interface OptionGroup {
-  id: number;
   name: string;
   maxSelect: number;
   options: Option[];
